@@ -1,4 +1,5 @@
 package Activity3;
+import java.util.Arrays;
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -52,6 +53,17 @@ public class Shuffler3 {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[values.length];
+		int mid = values.length / 2;
+		for (int i = 0; i < mid; i++) {
+			shuffled[2 * i] = values[i];
+			shuffled[2 * i + 1] = values[mid + i];
+		}
+
+		// give it back to the values
+		for (int i = 0; i < values.length; i++) {
+			values[i] = shuffled[i];
+		}
 	}
 
 	/**
@@ -67,5 +79,48 @@ public class Shuffler3 {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[values.length];
+		for (int i = 0; i < values.length; i++) {
+			int randIndex = (int) (Math.random() * (i + 1));
+			shuffled[i] = values[randIndex];
+			values[randIndex] = values[i];
+		}
+
+		for (int i = 0; i < values.length; i++) {
+			values[i] = shuffled[i];
+		}
+	}
+
+	public static void flip() {
+		int prob = (int) (Math.random() * 3);
+		if (prob == 0) {
+			System.out.println("Tails");
+		} else {
+			System.out.println("Heads");
+		}
+	}
+
+	public static boolean arePermutations(int[] value1, int[] value2) {
+		if (value1.length != value2.length) {
+			return false;
+		}
+
+		if (value1.length == 0 && value2.length == 0) {
+			return true;
+		}
+
+		int[] value1Sort = value1;
+		Arrays.sort(value1Sort);
+		int[] value2Sort = value2;
+		Arrays.sort(value2Sort);
+
+		for (int i = 0; i < value1Sort.length; i++) {
+			if (value1Sort[i] != value2Sort[i]) {
+				return false;
+				// break;
+			}
+		}
+
+		return true;
 	}
 }
