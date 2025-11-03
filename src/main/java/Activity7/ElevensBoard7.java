@@ -200,6 +200,14 @@ public class ElevensBoard7 {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 	}
 
+	public static void printCards(ElevensBoard7 board) {
+		List<Integer> indexes = board.cardIndexes();
+		for (Integer k : indexes) {
+			System.out.println(board.cardAt(k.intValue()));
+		}
+
+	}
+
 
 	/**
 	 * Deal cards to this board to start the game.

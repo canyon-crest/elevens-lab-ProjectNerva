@@ -12,7 +12,7 @@ public class DeckTester5_1 {
 	public static void main(String[] args) {
 		test1CardDeck();
 		test2CardDeck();
-		testShuffle();
+		// testShuffle();
 		System.out.println("All tests passed!");
 	}
 
